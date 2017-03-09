@@ -1,0 +1,45 @@
+<% include header.html %>
+    <div class="wrapper">
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="/">Upload Photos</a></li>
+            <li role="presentation" class="active"><a href="/browse">Browse Photos</a></li>
+        </ul>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="breadcrumb">
+                    Sort photos by:
+                    <button class="btn btn-sm btn-default" id="btnSortByTime">Time</button>
+                    <button class="btn btn-sm btn-default" id="btnSortByAccuracy"> Tagging accuracy</button>
+                    <button class="btn btn-sm btn-default" id="btnSortByFaces"># of <img src="/images/smile.png" class="smile-image"></button>
+                    <div class="input-group" id="searchgroup">
+                        <div class="input-group-addon">Search on Page:</div>
+                        <input type="text" class="form-control" id="key" placeholder="Tag">
+                    </div>
+                </div>
+                <ul id="album"></ul>
+                <div class="loader"></div>
+                <div class="end hide" title="Yes, I am clickable.">-- end --</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hide" id="template">
+        <li class="grid-item" data-accuracy="0" data-classification="" data-datetime="">
+            <a href="raw" data-lightbox="imgK" data-title="title" class="raw-link"><img src="/images/loading.png" width="200" title="Click to zoom In" class="thumbnail-img"></a>
+            <div class="remove">
+                <span class="glyphicon glyphicon-trash" title="Delete this photo"></span>
+            </div>
+            <div class="filters">
+                <div class="classification" style="background:rgba(88, 0, 12, 1)!important;">classification</div>
+                <div class="progress" title="Classification accuracy">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                        accuracy
+                    </div>
+                </div>
+                <a href="about:blank" data-lightbox="imgK" data-title="3 FACES DETECTED" class="face-link"></a>
+            </div>
+        </li>
+        <img src="/images/smile.png" class="smile-image">
+    </div>
+    <% include footer.html %>
+        <script src="/javascripts/browse.js"></script>

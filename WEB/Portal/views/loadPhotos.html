@@ -1,0 +1,26 @@
+                    <% for(var i=0; i<entities.length; i++) {%>
+                        <li class="grid-item" id="photo<%=i%>">
+                            <a href="<%=entities[i].raw._ %>" data-lightbox="img<%=i%>" data-title="<%=(entities[i].classification)?(entities[i].classification._):""%>"><img src="<%= (entities[i].thumbnail)?(entities[i].thumbnail._) : (entities[i].raw._) %>" width="200" title="Click to zoom In"></a>
+                            <div class="filters" >
+                                <%if(entities[i].classification) {%>
+                                    <div class="classification" style="background: rgba(0, 88, 12, <%=entities[i].accuracy._ /100%>)!important;">
+                                    <%=entities[i].classification._ %>
+                                    </div>
+                                    
+                                <%} %>
+                                <%if(entities[i].accuracy) {%>                                        
+                                    <div class="progress" title="Classification accuracy">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=entities[i].accuracy._ %>" aria-valuemin="0" aria-valuemax="100" 
+                                            style="width: <%=entities[i].accuracy._ %>%;background: rgba(0, 88, 12, <%=entities[i].accuracy._ /100%>)!important;">
+                                            <%=entities[i].accuracy._ %>%
+                                        </div>
+                                    </div>
+                                <%} %>
+                                     
+                                <%if(entities[i].faces && entities[i].faces._ > 0) {%>
+                                    <a href="<%=entities[i].facedetect._ %>" data-lightbox="img<%=i%>" 
+                                        data-title="<%=entities[i].faces._ %> face<%=entities[i].faces._ > 1?"s":"" %> detected"><% for (j = 0; j < entities[i].faces._; j++) {%><img src="/images/smile.png"><% } %></a>
+                                <%} %>                                    
+                            </div>
+                        </li>
+                        <% } %>

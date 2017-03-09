@@ -1,0 +1,39 @@
+﻿<% include header.html %>
+	<div class="wrapper">
+		<ul class="nav nav-tabs">
+			<li role="presentation" class="active"><a href="/">Upload Photos</a></li>
+			<li role="presentation"><a href="/browse">Browse Photos</a></li>
+		</ul>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span class="label label-default" id="msg"></span>
+			</div>
+			<form class="panel-body container-fluid" name="theform" onsubmit="return false;">
+				<div class="row">
+					<div class="col-md-5"><input type="file" id="file" name="file" style="width: 50%" /></div>
+					<div class="col-md-2"><button class="btn btn-sm btn-primary hide" type="button" id="btnUpload">Upload file</button></div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div id="output" class="hide">
+							<div class="progress" title="Classification accuracy" id="uploadprogress">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"
+								    style="width:0%" id="fileUploadProgress">
+									0.00 %
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5"><input type="text" class="form-control" id="uri" placeholder="Or a valid URI of an online photo"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-5"><textarea class="form-control" rows="30" id="uris" placeholder="Or a bunch of valid URIs"></textarea>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<% include footer.html %>
+		<script src="/javascripts/sasUpload.js"></script>
